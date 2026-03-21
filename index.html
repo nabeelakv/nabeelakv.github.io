@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nabeel | Web Designer</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="canvas-container"></div>
+
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <nav>
+        <div class="logo">NB.</div>
+        <div class="menu">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#projects">Work</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <main>
+        <section id="home" class="hero section">
+            <div class="hero-content">
+                <p class="subtitle reveal-text">Crafting Digital Experiences</p>
+                <h1 class="reveal-text">Nabeel</h1>
+                <h2 class="reveal-text">Interactive Web Designer</h2>
+                <a href="#projects" class="btn reveal-text">View My Work</a>
+            </div>
+        </section>
+
+        <section id="about" class="section">
+            <div class="container about-grid">
+                <div class="glass-card about-main">
+                    <h2 class="section-title">About Me</h2>
+                    <p>I’m Nabeel, a web designer and developer working at the intersection of design, technology, and
+                        innovation. I focus on crafting clean, high-performing websites that not only look refined but
+                        also deliver a seamless user experience. My approach is simple — build things that are visually
+                        strong, function flawlessly, and create real impact.</p>
+                </div>
+                <div class="glass-card about-sub">
+                    <h3>Beyond Screens</h3>
+                    <p>Alongside web design, I explore hardware-based systems using microcontrollers and sensors,
+                        constantly experimenting with ideas that bridge the gap between digital interfaces and
+                        real-world solutions. This mix of frontend design and hands-on engineering allows me to think
+                        beyond just screens and build with a broader perspective.</p>
+                </div>
+                <div class="glass-card about-sub">
+                    <h3>Design Philosophy</h3>
+                    <p>I believe great design is not about adding more, but about removing everything that doesn’t
+                        belong. Every project I work on is guided by clarity, performance, and purpose — creating
+                        experiences that feel minimal, intentional, and effective.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="section">
+            <div class="container">
+                <h2 class="section-title">Selected Work</h2>
+                <div class="project-grid">
+                    <a href="https://webauras.github.io" target="_blank" class="project-card glass-card">
+                        <h3>Web Aura Studios</h3>
+                        <p>An educational platform providing free UI/UX design courses and premium assets alongside agency services.</p>
+                    </a>
+                    <a href="https://serablakeco.vercel.app" target="_blank" class="project-card glass-card">
+                        <h3>Sera Blake Co.</h3>
+                        <p>A sleek brand uniting cross-border courier services with a curated contemporary apparel collection.</p>
+                    </a>
+                    <a href="https://dragwolfc.github.io" target="_blank" class="project-card glass-card">
+                        <h3>DRAGWOLF</h3>
+                        <p>A luxury streetwear brand interface designed for exclusive, limited-edition apparel drops and high-end fashion.</p>
+                    </a>
+                    <a href="https://vilanou.github.io/TRAILZ/" target="_blank" class="project-card glass-card">
+                        <h3>Trailz Wedding</h3>
+                        <p>A premium digital presence for a modern wedding studio, focusing on minimal, elegant, and timeless visual storytelling.</p>
+                    </a>
+                    <a href="https://vilanou.github.io/ERABOTS/" target="_blank" class="project-card glass-card">
+                        <h3>Erabots</h3>
+                        <p>An innovative robotics startup platform showcasing custom drone automation, electronics, and engineering guidance.</p>
+                    </a>
+                    <a href="https://ordertrackr.github.io" target="_blank" class="project-card glass-card">
+                        <h3>Order Trackr</h3>
+                        <p>A beautifully designed, intuitive mini-CRM web application built to streamline sales and customer management for Instagram businesses.</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <div class="container glass-card contact-card">
+                <h2 class="section-title">Let's Connect</h2>
+                <p>Ready to build something extraordinary?</p>
+                <a href="https://ig.me/m/a.nabeeeeel" target="_blank" class="btn">Say Hello</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Scripts -->
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- App Script -->
+    <script src="script.js"></script>
+</body>
+
+</html>

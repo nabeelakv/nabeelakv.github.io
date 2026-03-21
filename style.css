@@ -1,0 +1,317 @@
+:root {
+    --bg: #050505;
+    --text-main: #ffffff;
+    --text-sec: #a0a0a0;
+    --accent: #5e17eb; /* Purple accent */
+    --accent-glow: rgba(94, 23, 235, 0.4);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--text-main);
+    font-family: 'Outfit', sans-serif;
+    overflow-x: hidden;
+    cursor: none; /* For custom cursor */
+}
+
+/* Custom Cursor */
+.cursor {
+    width: 8px;
+    height: 8px;
+    background-color: var(--accent);
+    border-radius: 50%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+}
+
+.cursor-follower {
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 9998;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s, height 0.3s, background-color 0.3s;
+}
+
+.cursor-follower.active {
+    width: 60px;
+    height: 60px;
+    background-color: var(--accent-glow);
+    border-color: var(--accent);
+}
+
+/* Three.js Background */
+#canvas-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+}
+
+/* Navigation */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    mix-blend-mode: difference;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.menu a {
+    color: var(--text-main);
+    text-decoration: none;
+    margin-left: 2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+.menu a:hover {
+    color: var(--accent);
+}
+
+/* Base Layout */
+main {
+    position: relative;
+    z-index: 1;
+}
+
+.section {
+    min-height: 100vh;
+    padding: 6rem 4rem;
+    display: flex;
+    align-items: center;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* Glassmorphism */
+.glass-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 4rem;
+}
+
+/* Hero Section */
+.hero {
+    justify-content: center;
+    text-align: center;
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.subtitle {
+    color: var(--accent);
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-size: 6rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(135deg, #ffffff 0%, #a0a0a0 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+h2 {
+    font-size: 2.5rem;
+    font-weight: 400;
+    color: var(--text-sec);
+    margin-bottom: 3rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 1rem 3rem;
+    background: transparent;
+    color: var(--text-main);
+    border: 1px solid var(--accent);
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+    transition: color 0.3s ease;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: var(--accent);
+    z-index: -1;
+    transition: width 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.btn:hover {
+    color: #fff;
+    cursor: none;
+}
+
+.btn:hover::before {
+    width: 100%;
+}
+
+/* About & Context Grid */
+.section-title {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    color: var(--text-main);
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    background: transparent;
+    border: none;
+    padding: 0;
+    backdrop-filter: none;
+}
+
+.about-main {
+    grid-column: 1 / -1;
+}
+
+.about-main p, .about-sub p {
+    font-size: 1.15rem;
+    color: var(--text-sec);
+    line-height: 1.8;
+    margin-bottom: 0;
+    max-width: 100%;
+}
+
+.about-sub h3 {
+    font-size: 1.5rem;
+    color: var(--text-main);
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+/* Skills (Legacy) */
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.skills span {
+    padding: 0.5rem 1.5rem;
+    background: rgba(94, 23, 235, 0.1);
+    border: 1px solid rgba(94, 23, 235, 0.3);
+    border-radius: 20px;
+    font-size: 0.9rem;
+    color: var(--text-main);
+}
+
+/* Projects Grid */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    background: transparent;
+    border: none;
+    padding: 0;
+    backdrop-filter: none;
+}
+
+.project-card {
+    padding: 3rem 2rem;
+    transition: transform 0.4s ease, border-color 0.4s ease;
+    text-decoration: none;
+    color: var(--text-main);
+    display: block;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    border-color: rgba(94, 23, 235, 0.5);
+}
+
+.project-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.project-card p {
+    color: var(--text-sec);
+}
+
+/* Contact */
+.contact-card {
+    text-align: center;
+    max-width: 800px;
+}
+
+.contact-card p {
+    font-size: 1.5rem;
+    color: var(--text-sec);
+    margin-bottom: 3rem;
+}
+
+/* Reveal Text Utility */
+.reveal-text {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+@media (max-width: 768px) {
+    h1 { font-size: 4rem; }
+    h2 { font-size: 1.8rem; }
+    nav { padding: 1.5rem 2rem; flex-direction: column; gap: 1rem; }
+    .section { padding: 4rem 2rem; }
+    .about-grid { grid-template-columns: 1fr; }
+    .cursor, .cursor-follower { display: none; }
+    body { cursor: auto; }
+}

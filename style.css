@@ -306,12 +306,80 @@ h2 {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
 }
 
+/* Hamburger */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+    z-index: 1000;
+}
+.hamburger span {
+    width: 30px;
+    height: 2px;
+    background-color: var(--text-main);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
 @media (max-width: 768px) {
-    h1 { font-size: 4rem; }
-    h2 { font-size: 1.8rem; }
-    nav { padding: 1.5rem 2rem; flex-direction: column; gap: 1rem; }
+    h1 { font-size: 3.5rem; }
+    h2 { font-size: 1.5rem; }
+    .section-title { font-size: 2.2rem; }
+    
+    nav { padding: 1.5rem 2rem; flex-direction: row; justify-content: space-between; align-items: center; }
+    .hamburger { display: flex; }
+    
+    .menu {
+        display: flex;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(5, 5, 5, 0.98);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2.5rem;
+        transition: right 0.4s ease;
+        z-index: 999;
+    }
+    .menu.active { right: 0; }
+    
+    .menu a { 
+        font-size: 2.2rem; 
+        font-weight: 300;
+        letter-spacing: 4px;
+        color: var(--text-sec);
+        margin: 0; 
+        position: relative;
+    }
+    .menu a:hover, .menu a:active {
+        color: var(--text-main);
+    }
+    .menu a::after {
+        content: '';
+        position: absolute;
+        bottom: -8px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0%;
+        height: 1px;
+        background-color: var(--accent);
+        transition: width 0.4s ease;
+    }
+    .menu a:hover::after, .menu a:active::after {
+        width: 100%;
+    }
+    
+    /* Hamburger Animation */
+    .hamburger.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+    
     .section { padding: 4rem 2rem; }
     .about-grid { grid-template-columns: 1fr; }
+    .projects-grid { grid-template-columns: 1fr; }
     .cursor, .cursor-follower { display: none; }
     body { cursor: auto; }
 }

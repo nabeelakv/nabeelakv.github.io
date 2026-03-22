@@ -176,3 +176,20 @@ window.addEventListener('resize', () => {
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 });
+
+// --- Mobile Menu ---
+const hamburger = document.querySelector('.hamburger');
+const menu = document.querySelector('.menu');
+const menuLinks = document.querySelectorAll('.menu a');
+
+hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    menu.classList.toggle('active');
+});
+
+menuLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        menu.classList.remove('active');
+    });
+});
